@@ -1,6 +1,7 @@
 package com.kodgemisi.ornek.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Item {
@@ -13,6 +14,10 @@ public class Item {
     private String inventoryCode;
 
     private String type;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Set<User> users;
 
     public Item() {
     }
