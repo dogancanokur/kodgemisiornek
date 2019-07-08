@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Add Item</title>
+</head>
+<body>
+<nav role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/items">Items</a></li>
+    </ul>
+</nav>
+
+<form th:action="@{/items}" th:method="post" th:object="${itemForm}">
+    <table>
+        <tr>
+            <td>Item Type:</td>
+            <td><input th:field="*{itemType}" type="text"/></td>
+            <td th:errors="*{itemType}" th:if="${#fields.hasErrors('itemType')}">Item Type Error will appear here</td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><input th:field="*{amount}" type="text"/></td>
+            <td th:errors="*{amount}" th:if="${#fields.hasErrors('amount')}">Amount Error will appear here</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Add</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
