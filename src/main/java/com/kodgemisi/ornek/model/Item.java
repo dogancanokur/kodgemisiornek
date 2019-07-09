@@ -1,7 +1,6 @@
 package com.kodgemisi.ornek.model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Item {
@@ -17,7 +16,7 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private Set<User> users;
+    private User user;
 
     public Item() {
     }
