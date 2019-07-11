@@ -26,6 +26,12 @@ public class Item {
         this.type = type;
     }
 
+    public Item(String inventoryCode, String type, User user) {
+        this.inventoryCode = inventoryCode;
+        this.type = type;
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -48,6 +54,14 @@ public class Item {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

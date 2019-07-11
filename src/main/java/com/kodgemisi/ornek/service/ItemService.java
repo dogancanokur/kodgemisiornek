@@ -10,4 +10,7 @@ public interface ItemService {
 
     void deleteItemById(Long id);
 
+    Item getItemById(long id);
+
+    Item assignItem(String username, long itemId);
 }

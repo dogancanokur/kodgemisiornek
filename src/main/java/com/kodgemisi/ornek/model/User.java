@@ -29,6 +29,7 @@ public class User {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
+    //    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @OneToMany(mappedBy = "user")
     private Set<Item> items;
 
@@ -86,5 +87,18 @@ public class User {
 
     public void setItems(Set<Item> items) {
         this.items = items;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", items=").append(items);
+        sb.append('}');
+        return sb.toString();
     }
 }

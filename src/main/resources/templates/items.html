@@ -13,18 +13,33 @@
 </nav>
 <table>
     <tr>
-        <th></th>
         <th>Item code</th>
         <th>Item type</th>
+        <th>Belongs to</th>
+        <th>Assign</th>
+        <th>Delete</th>
     </tr>
-    <tr th:each="item : ${items}">
+    <tr th:each="item : ${items}    ">
+        <td th:text="${item.inventoryCode}">Item code will appear here</td>
+        <td th:text="${item.type}">Item type will appear here</td>
+        <td th:text="${item.user}">Item type will appear here</td>
+        <td>
+            <form th:action="@{/items/} + ${item.id}" th:method="put">
+                <select th:field="*{assignForm.username}">
+                    <option th:each="username : ${usernames}"
+                            th:text="${username}"
+                            th:value="${username}">
+                        Username will appear here
+                    </option>
+                </select>
+                <button type="submit">Assign</button>
+            </form>
+        </td>
         <td>
             <form th:action="@{/items/} + ${item.id}" th:method="delete">
                 <button type="submit">Delete</button>
             </form>
         </td>
-        <td th:text="${item.inventoryCode}">Item code will appear here</td>
-        <td th:text="${item.type}">Item type will appear here</td>
     </tr>
 </table>
 </body>
